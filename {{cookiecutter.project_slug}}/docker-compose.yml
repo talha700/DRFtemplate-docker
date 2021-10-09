@@ -1,0 +1,67 @@
+version: "3.5"
+services:
+  db:
+    image: postgres:12
+    env_file:
+      - .env.dev
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/pgdata
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    networks:
+      - internal-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    ports:
+    - 5050:5050
+    env_file:
+      - .env.dev
+    networks:
+      - internal-network
+
+  {{cookiecutter.project_slug}}:
+    image: {{cookiecutter.project_slug}}
+    build: .
+    depends_on:
+      - db
+    links:
+      - db:db
+    volumes:
+      - .:/app
+    ports:
+      - {{cookiecutter.django_port_for_dev}}:80
+    env_file:
+      - .env.dev
+    command: ['bash', '/app/scripts/run_dev.sh']
+    networks:
+      - internal-network
+
+  redis:
+    image: redis
+    networks:
+        - internal-network
+    
+  celery:
+    restart: always
+    build: .
+    command: celery -A {{cookiecutter.project_slug}} worker -l info
+    volumes:
+      - .:/app
+    env_file:
+      - .env.dev
+    depends_on:
+      - db
+      - redis
+      - {{cookiecutter.project_slug}}
+    networks:
+      - internal-network
+
+volumes:
+  app-db-data:
+
+networks:
+  internal-network:
+    external: false

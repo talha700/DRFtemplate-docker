@@ -1,0 +1,17 @@
+{
+    "project_name": "Enter project name here",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "secret_key": "changethis",
+    "postgres_password": "changethis",
+    "postgres_db": "{{cookiecutter.project_slug}}",
+    "first_superuser_username": "{{cookiecutter.project_slug}}_admin",
+    "first_superuser_password": "changethis",
+    "first_superuser_email": "admin@{{cookiecutter.project_slug}}.com",
+    "postgres_port": 5432,
+    "pgadmin_default_user": "{{cookiecutter.first_superuser_username}}",
+    "pgadmin_default_email": "{{cookiecutter.first_superuser_email}}",
+    "pgadmin_default_user_password": "{{cookiecutter.first_superuser_password}}",
+    "allowed_hosts": "localhost 127.0.0.1 [::1]",
+    "django_port_for_dev": 8000,
+    "_copy_without_render": []
+}

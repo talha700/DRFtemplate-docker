@@ -1,0 +1,35 @@
+version: "3.5"
+services:
+  {{cookiecutter.project_slug}}:
+    image: {{cookiecutter.project_slug}}
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/mediafiles
+    build: .
+    expose:
+      - 8000
+    env_file:
+      - .env.prod
+    command: ['bash', '/app/scripts/run_prod.sh']
+    networks:
+      - internal-network
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 8181:80
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/mediafiles
+    depends_on:
+      - {{cookiecutter.project_slug}}
+    networks:
+      - internal-network
+
+volumes:
+  static_volume:
+  media_volume:
+
+networks:
+  internal-network:
+    external: false
