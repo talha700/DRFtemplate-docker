@@ -15,15 +15,22 @@ Template for creating a Django REST project contains various features & tools
 
 ## Usage
 
-Install cookiecutter <br/>
+1.Install cookiecutter <br/>
 `pip install cookiecutter`
 
-Create project <br/>
+2.Create project <br/>
 `cookiecutter https://github.com/talha700/drf_postgresql_biolerplate.git`
  
-
 
 cookiecutter will prompt for the settings
 
 
+3.Create `env.dev` file by refering to `env.example.dev`
 
+4.Build & Start
+
+> docker-compose up 
+
+to run in detached mode
+
+> docker-compose up -d 
