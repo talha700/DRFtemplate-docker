@@ -16,14 +16,12 @@ Template for creating a Django REST project contains various features & tools
 ## Usage
 
 Install cookiecutter
-`
-pip install cookiecutter
-`
+> `pip install cookiecutter`
 
 Create project
-`
-cookiecutter https://github.com/talha700/drf_postgresql_biolerplate.git
-`  
+
+> `cookiecutter https://github.com/talha700/drf_postgresql_biolerplate.git`
+ 
 
 
 cookiecutter will prompt for the settings
