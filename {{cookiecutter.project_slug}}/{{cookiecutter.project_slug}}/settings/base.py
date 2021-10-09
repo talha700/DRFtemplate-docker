@@ -152,9 +152,9 @@ SPECTACULAR_SETTINGS = {
         'drf_spectacular.hooks.preprocess_exclude_path_format',
         '{{cookiecutter.project_slug}}.utils.remove_certain_endpoints'
     ],
-    'VERSION': '0.0.1',
-    'TITLE': 'Internal Software',
-    'DESCRIPTION': 'API Here could be usage instructions',
+    'VERSION': '1.0',
+    'TITLE': '{{cookiecutter.project_slug}}',
+    'DESCRIPTION': 'API Docs',
     'CONTACT': {'talhajaved700@gmail.com'},
 
     "SWAGGER_UI_SETTINGS": {

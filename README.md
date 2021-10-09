@@ -21,3 +21,8 @@ Install cookiecutter
 Create project
 `cookiecutter https://github.com/talha700/drf_postgresql_biolerplate.git`  
 
+
+cookiecutter will prompt for the settings
+
+
+
