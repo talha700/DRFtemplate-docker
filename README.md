@@ -1,4 +1,4 @@
-# djangoDRFtemplate-docker
+# djangoRFtemplate-docker
 
 Template for creating a Django REST project contains various features & tools
 
