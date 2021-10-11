@@ -7,6 +7,7 @@ Template for creating a Django REST project contains various features & tools
 - Postgresql DB
 - PGadmin
 - Celery/Redis setup
+- Celery beats/flower setup
 - JWT auth ([djangorestframework-simplejwt](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)) along views for create/delete user & change password
 - OpenAPI docs using [drf-spectacular](https://drf-spectacular.readthedocs.io/en/latest/) (swagger UI)
 - VScode debugger config
