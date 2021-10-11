@@ -43,6 +43,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_spectacular',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 OUR_APPS = [
@@ -155,7 +157,7 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0',
     'TITLE': '{{cookiecutter.project_slug}}',
     'DESCRIPTION': 'API Docs',
-    'CONTACT': {'talhajaved700@gmail.com'},
+    'CONTACT': {'someone@provider.com'},
 
     "SWAGGER_UI_SETTINGS": {
         "deepLinking": True,
@@ -165,5 +167,9 @@ SPECTACULAR_SETTINGS = {
 }
 
 
+
 CELERY_BROKER_URL = "redis://redis:6379/0"
-CELERY_RESULT_BACKEND = "redis://redis:6379/1"
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'

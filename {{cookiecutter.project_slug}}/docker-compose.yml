@@ -5,7 +5,7 @@ services:
     env_file:
       - .env.dev
     volumes:
-      - app-db-data:/var/lib/postgresql/data/pgdata
+      - db-data:/var/lib/postgresql/data/pgdata
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
     networks:
@@ -59,8 +59,20 @@ services:
     networks:
       - internal-network
 
+  flower:
+    image: mher/flower:0.9.5
+    command: ['flower', '--broker=redis://redis:6379', '--port=5555']
+    ports:
+      - 5557:5555
+    depends_on:
+      - redis
+      - db
+    networks:
+      - internal-network
+
+
 volumes:
-  app-db-data:
+  db-data:
 
 networks:
   internal-network:
