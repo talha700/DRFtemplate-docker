@@ -35,3 +35,8 @@ Template for creating a Django REST project contains various features & tools
     to run in detached mode
 
     > docker-compose up -d 
+
+
+#### Access swagger UI 
+
+> api/{{project_slug}}/schema/swagger-ui/
