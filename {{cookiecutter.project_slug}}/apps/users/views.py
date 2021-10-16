@@ -19,7 +19,7 @@ UserModel = get_user_model()
 class ManageUsers(viewsets.ViewSet):
     serializer_class = UserSerializer
     queryset = UserModel.objects.all()
-    permission_classes = [permissions.IsAuthenticated,IsSuperUser]
+    # permission_classes = [permissions.IsAuthenticated,IsSuperUser]
 
    
     def create(self , request):
@@ -35,7 +35,7 @@ class ManageUsers(viewsets.ViewSet):
 
 
     @extend_schema(
-        description="Deactivate User. Only Super User have permission",
+        description="Deactivate User",
         responses={200: None , 404: None}
     )
     @action(detail=True, methods=['delete'])

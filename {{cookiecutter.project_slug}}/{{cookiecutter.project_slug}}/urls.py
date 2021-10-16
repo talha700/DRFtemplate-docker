@@ -54,7 +54,6 @@ urlpatterns = [
     ),
 ]
 
-# urlpatterns += role_router.urls
-# urlpatterns += user_router.urls
+
 
 urlpatterns = format_suffix_patterns(urlpatterns)
